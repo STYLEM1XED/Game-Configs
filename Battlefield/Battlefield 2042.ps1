@@ -94,5 +94,29 @@
     return $OpenFileDialog.FileName
     }
 
-Write-Host "In Progress"
+# create config folder
+New-Item -Path "$env:USERPROFILE\Documents\Battlefield 2042" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+New-Item -Path "$env:USERPROFILE\OneDrive\Documents\Battlefield 2042" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+# download and replace config files           
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%202042/PROFSAVE_profile" -File "$env:TEMP\PROFSAVE_profile"
+Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\Documents\Battlefield 2042\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 2042\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%202042/PROFSAVE" -File "$env:TEMP\PROFSAVE"
+Copy-Item -Path "$env:TEMP\PROFSAVE" -Destination "$env:USERPROFILE\Documents\Battlefield 2042\settings\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 2042\settings\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+# pick install folder
+Write-Host "Select Battlefield 2042 install folder:"
+$ConfigFolder1 = Show-ModernFilePicker -Mode Folder
+Clear-Host
+# download and replace config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%202042/user.cfg" -File "$ConfigFolder1\user.cfg"
+Clear-Host
+# delete shader cache
+Remove-Item -Path "$env:LOCALAPPDATA\BattlefieldGameData.kin-release.Win32" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Write-Host "Battlefield 2042 Config applied . . ."
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
