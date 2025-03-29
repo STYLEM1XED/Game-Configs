@@ -118,5 +118,5 @@ Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/
 Clear-Host
 # delete shader cache
 Remove-Item -Path "$env:LOCALAPPDATA\BattlefieldGameData.kin-release.Win32" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
-Write-Host "Battlefield 2042 Config applied . . ."
+Write-Host "Battlefield 2042 config applied . . ."
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

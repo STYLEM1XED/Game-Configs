@@ -94,5 +94,47 @@
     return $OpenFileDialog.FileName
     }
 
-Write-Host "In Progress"
+# create config folder
+New-Item -Path "$env:USERPROFILE\Documents\Battlefield 1" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+New-Item -Path "$env:USERPROFILE\OneDrive\Documents\Battlefield 1" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+# download and replace config files           
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%201/PROFSAVE" -File "$env:TEMP\PROFSAVE"
+Copy-Item -Path "$env:TEMP\PROFSAVE" -Destination "$env:USERPROFILE\Documents\Battlefield 1\settings\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 1\settings\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%201/PROFSAVE_backup" -File "$env:TEMP\PROFSAVE_backup"
+Copy-Item -Path "$env:TEMP\PROFSAVE_backup" -Destination "$env:USERPROFILE\Documents\Battlefield 1\settings\PROFSAVE_backup" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE_backup" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 1\settings\PROFSAVE_backup" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE_backup" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%201/PROFSAVE_backup_profile" -File "$env:TEMP\PROFSAVE_backup_profile"
+Copy-Item -Path "$env:TEMP\PROFSAVE_backup_profile" -Destination "$env:USERPROFILE\Documents\Battlefield 1\settings\PROFSAVE_backup_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE_backup_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 1\settings\PROFSAVE_backup_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE_backup_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%201/PROFSAVE_backup_profile_synced" -File "$env:TEMP\PROFSAVE_backup_profile_synced"
+Copy-Item -Path "$env:TEMP\PROFSAVE_backup_profile_synced" -Destination "$env:USERPROFILE\Documents\Battlefield 1\settings\PROFSAVE_backup_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE_backup_profile_synced" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 1\settings\PROFSAVE_backup_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE_backup_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%201/PROFSAVE_profile" -File "$env:TEMP\PROFSAVE_profile"
+Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\Documents\Battlefield 1\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 1\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%201/PROFSAVE_profile_synced" -File "$env:TEMP\PROFSAVE_profile_synced"
+Copy-Item -Path "$env:TEMP\PROFSAVE_profile_synced" -Destination "$env:USERPROFILE\Documents\Battlefield 1\settings\PROFSAVE_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE_profile_synced" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 1\settings\PROFSAVE_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+# pick install folder
+Write-Host "Select Battlefield 1 install folder:"
+$ConfigFolder1 = Show-ModernFilePicker -Mode Folder
+Clear-Host
+# download and replace config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%201/user.cfg" -File "$ConfigFolder1\user.cfg"
+Clear-Host
+Write-Host "Battlefield 1 config applied . . ."
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
