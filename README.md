@@ -6,10 +6,10 @@ Adjust bindings, sensitivity, refresh rate, and resolution to your preference.<b
 Settings are subjective, so these configs are not definitive.<br> 
 High-end GPUs owners can afford to experiment with higher graphics settings.<br>
 
-# IRM
+# IWR
 - Paste this code into an elevated Administrator PowerShell window.
 ```
-irm https://gist.github.com/FR33THYFR33THY/1d979e6fab17760434367b6ab3c9913d/raw/e48151a5323322bbeb534ab6fc284fc77b9e27ee/Github-Game-Configs.ps1 | iex
+iwr https://gist.githubusercontent.com/FR33THYFR33THY/1d979e6fab17760434367b6ab3c9913d/raw |iex
 ```
 
 # OR
