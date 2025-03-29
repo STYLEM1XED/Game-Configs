@@ -94,5 +94,30 @@
     return $OpenFileDialog.FileName
     }
 
-Write-Host "In Progress"
+# create config folder
+New-Item -Path "$env:USERPROFILE\Documents\Battlefield 3" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+New-Item -Path "$env:USERPROFILE\OneDrive\Documents\Battlefield 3" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+# download and replace config files           
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%203/PROF_SAVE_body" -File "$env:TEMP\PROF_SAVE_body"
+Copy-Item -Path "$env:TEMP\PROF_SAVE_body" -Destination "$env:USERPROFILE\Documents\Battlefield 3\settings\PROF_SAVE_body" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROF_SAVE_body" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 3\settings\PROF_SAVE_body" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROF_SAVE_body" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%203/PROF_SAVE_profile" -File "$env:TEMP\PROF_SAVE_profile"
+Copy-Item -Path "$env:TEMP\PROF_SAVE_profile" -Destination "$env:USERPROFILE\Documents\Battlefield 3\settings\PROF_SAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROF_SAVE_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 3\settings\PROF_SAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROF_SAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+# pick install folder
+Write-Host "Select Battlefield 3 install folder:"
+$ConfigFolder1 = Show-ModernFilePicker -Mode Folder
+Clear-Host
+# download and replace config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%203/user.cfg" -File "$ConfigFolder1\user.cfg"
+Clear-Host
+Write-Host "Battlefield 3 config applied . . ."
+Write-Host ""
+Write-Host "https://veniceunleashed.net/"
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+Start-Process https://veniceunleashed.net/
