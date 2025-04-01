@@ -113,13 +113,26 @@ Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/
 Copy-Item -Path "$env:TEMP\GameSettings.bin" -Destination "$env:USERPROFILE\Documents\BFBC2\GameSettings.bin" -Force -ErrorAction SilentlyContinue | Out-Null
 Copy-Item -Path "$env:TEMP\GameSettings.bin" -Destination "$env:USERPROFILE\OneDrive\Documents\BFBC2\GameSettings.bin" -Force -ErrorAction SilentlyContinue | Out-Null
 Remove-Item -Path "$env:TEMP\GameSettings.bin" -Force -ErrorAction SilentlyContinue | Out-Null
-
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Bad%20Company%202/GameSettings.bin" -File "$env:TEMP\GameSettings.bin"
-Copy-Item -Path "$env:TEMP\GameSettings.bin" -Destination "$env:USERPROFILE\Documents\BFBC2\input\GameSettings.bin" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\GameSettings.bin" -Destination "$env:USERPROFILE\OneDrive\Documents\BFBC2\input\GameSettings.bin" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\GameSettings.bin" -Force -ErrorAction SilentlyContinue | Out-Null
-
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Bad%20Company%202/air.dbx" -File "$env:TEMP\air.dbx"
+Copy-Item -Path "$env:TEMP\air.dbx" -Destination "$env:USERPROFILE\Documents\BFBC2\input\air.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\air.dbx" -Destination "$env:USERPROFILE\OneDrive\Documents\BFBC2\input\air.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\air.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Bad%20Company%202/infantry.dbx" -File "$env:TEMP\infantry.dbx"
+Copy-Item -Path "$env:TEMP\infantry.dbx" -Destination "$env:USERPROFILE\Documents\BFBC2\input\infantry.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\infantry.dbx" -Destination "$env:USERPROFILE\OneDrive\Documents\BFBC2\input\infantry.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\infantry.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Bad%20Company%202/land.dbx" -File "$env:TEMP\land.dbx"
+Copy-Item -Path "$env:TEMP\land.dbx" -Destination "$env:USERPROFILE\Documents\BFBC2\input\land.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\land.dbx" -Destination "$env:USERPROFILE\OneDrive\Documents\BFBC2\input\land.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\land.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Bad%20Company%202/shared.dbx" -File "$env:TEMP\shared.dbx"
+Copy-Item -Path "$env:TEMP\shared.dbx" -Destination "$env:USERPROFILE\Documents\BFBC2\input\shared.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\shared.dbx" -Destination "$env:USERPROFILE\OneDrive\Documents\BFBC2\input\shared.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\shared.dbx" -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
 Write-Host "Battlefield Bad Company 2 config applied . . ."
 Write-Host ""
