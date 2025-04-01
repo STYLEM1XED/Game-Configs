@@ -109,6 +109,11 @@ Copy-Item -Path "$env:TEMP\PROFSAVE_ChangeName" -Destination "$env:USERPROFILE\D
 Copy-Item -Path "$env:TEMP\PROFSAVE_ChangeName" -Destination "$env:USERPROFILE\OneDrive\Documents\BFH\settings\PROFSAVE_ChangeName" -Force -ErrorAction SilentlyContinue | Out-Null
 Remove-Item -Path "$env:TEMP\PROFSAVE_ChangeName" -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Hardline/PROFSAVE_ChangeName_header" -File "$env:TEMP\PROFSAVE_ChangeName_header"
+Copy-Item -Path "$env:TEMP\PROFSAVE_ChangeName_header" -Destination "$env:USERPROFILE\Documents\BFH\settings\PROFSAVE_ChangeName_header" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\PROFSAVE_ChangeName_header" -Destination "$env:USERPROFILE\OneDrive\Documents\BFH\settings\PROFSAVE_ChangeName_header" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$env:TEMP\PROFSAVE_ChangeName_header" -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
 # pick install folder
 Write-Host "Select Battlefield Hardline BFH install folder:"
 $ConfigFolder1 = Show-ModernFilePicker -Mode Folder
@@ -118,6 +123,9 @@ Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/
 Clear-Host
 Write-Host "Battlefield Hardline config applied . . ."
 Write-Host ""
-Write-Host "Documents\BFH\settings\PROFSAVE_ChangeName"
-Write-Host "Rename ChangeName to ingame/ea name"
+Write-Host "In Documents\BFH\settings\"
+Write-Host "PROFSAVE_ChangeName"
+Write-Host "PROFSAVE_ChangeName_header"
+Write-Host ""
+Write-Host "Rename both ChangeName's to ingame/ea name"
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
