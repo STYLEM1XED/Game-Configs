@@ -94,8 +94,10 @@
     return $OpenFileDialog.FileName
     }
 
-# create config folder
-New-Item -Path "$env:LOCALAPPDATA\Marvel\Saved\Config" -Name "Windows" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+# message
+Write-Host "Run game once to generate config location"
+Write-Host ""
+Pause
 Clear-Host
 # download and replace config files           
 Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Marvel%20Rivals/Marvel%20Rivals/GameUserSettings.ini" -File "$env:LOCALAPPDATA\Marvel\Saved\Config\Windows\GameUserSettings.ini"
