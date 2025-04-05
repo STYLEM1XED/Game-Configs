@@ -100,7 +100,7 @@ Write-Host ""
 Pause
 Clear-Host
 # download config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Call%20of%20Duty/Call%20of%20Duty%20Modern%20Warfare%203%20(2023)/options.4.cod23.cst" -File "$env:TEMP\options.4.cod23.cst"
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Call%20of%20Duty/Call%20of%20Duty%20Modern%20Warfare%203%202023/options.4.cod23.cst" -File "$env:TEMP\options.4.cod23.cst"
 Clear-Host
 # edit config files
 $path1 = "$env:TEMP\options.4.cod23.cst"
