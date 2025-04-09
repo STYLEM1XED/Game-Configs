@@ -95,42 +95,6 @@
     }
 
 # message
-Write-Host "Run game once to generate config location"
-Write-Host ""
+Clear-Host
+Write-Host "In Progress..."
 Pause
-Clear-Host
-# download config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Call%20of%20Duty/Call%20of%20Duty%20Modern%20Warfare%203%202023/options.4.cod23.cst" -File "$env:TEMP\options.4.cod23.cst"
-Clear-Host
-# edit config files
-$path1 = "$env:TEMP\options.4.cod23.cst"
-Write-Host "Set RendererWorkerCount to cpu cores -1"
-Write-Host ""
-# user input change rendererworkercount in config files
-do {
-$input = Read-Host -Prompt "RendererWorkerCount"
-} while ([string]::IsNullOrWhiteSpace($input))
-(Get-Content $path1) -replace "\$", $input | Out-File $path1
-# convert files to utf8
-$content = Get-Content -Path "$env:TEMP\options.4.cod23.cst" -Raw
-$filePath = "$env:TEMP\options.4.cod23.cst"
-$encoding = New-Object System.Text.UTF8Encoding $false
-$writer = [System.IO.StreamWriter]::new($filePath, $false, $encoding)
-$writer.Write($content)
-$writer.Close()
-# move config files
-Copy-Item -Path "$env:TEMP\options.4.cod23.cst" -Destination "$env:USERPROFILE\Documents\Call of Duty\players\options.4.cod23.cst" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\options.4.cod23.cst" -Destination "$env:USERPROFILE\OneDrive\Documents\Call of Duty\players\options.4.cod23.cst" -Force -ErrorAction SilentlyContinue | Out-Null
-Clear-Host
-Remove-Item -Path "$env:TEMP\options.4.cod23.cst" -Force -ErrorAction SilentlyContinue | Out-Null
-# message
-Write-Host "Call of Duty Modern Warfare 3 2023 config applied . . ."
-Write-Host ""
-Write-Host "Resizable-bar causes bad 1% lows in this engine"
-Write-Host "Resizable-bar turned off in config for NVIDIA GPU'S"
-Write-Host "AMD GPU users please turn off Resizable-bar in BIOS"
-Write-Host ""
-Write-Host "Always select no for Set Optimal Settings & Run In Safe Mode"
-Write-Host ""
-Write-Host "Open game, in GRAPHICS select Restart Shaders Pre-Loading then reboot game"
-$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

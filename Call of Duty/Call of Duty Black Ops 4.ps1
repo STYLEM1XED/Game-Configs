@@ -95,56 +95,6 @@
     }
 
 # message
-Write-Host "Run game once to generate config location"
-Write-Host ""
+Clear-Host
+Write-Host "In Progress..."
 Pause
-Clear-Host
-# download config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Call%20of%20Duty/Call%20of%20Duty%20Black%20Ops%206/s.1.0.cod24.txt0" -File "$env:TEMP\s.1.0.cod24.txt0"
-Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Call%20of%20Duty/Call%20of%20Duty%20Black%20Ops%206/s.1.0.cod24.txt1" -File "$env:TEMP\s.1.0.cod24.txt1"
-Clear-Host
-# edit config files
-$path1 = "$env:TEMP\s.1.0.cod24.txt0"
-$path2 = "$env:TEMP\s.1.0.cod24.txt1"
-Write-Host "Set RendererWorkerCount to cpu cores -1"
-Write-Host ""
-# user input change rendererworkercount in config files
-do {
-$input = Read-Host -Prompt "RendererWorkerCount"
-} while ([string]::IsNullOrWhiteSpace($input))
-(Get-Content $path1) -replace "\$", $input | Out-File $path1
-(Get-Content $path2) -replace "\$", $input | Out-File $path2
-# convert files to utf8
-$content = Get-Content -Path "$env:TEMP\s.1.0.cod24.txt0" -Raw
-$filePath = "$env:TEMP\s.1.0.cod24.txt0"
-$encoding = New-Object System.Text.UTF8Encoding $false
-$writer = [System.IO.StreamWriter]::new($filePath, $false, $encoding)
-$writer.Write($content)
-$writer.Close()
-$content = Get-Content -Path "$env:TEMP\s.1.0.cod24.txt1" -Raw
-$filePath = "$env:TEMP\s.1.0.cod24.txt1"
-$encoding = New-Object System.Text.UTF8Encoding $false
-$writer = [System.IO.StreamWriter]::new($filePath, $false, $encoding)
-$writer.Write($content)
-$writer.Close()
-# move config files
-Copy-Item -Path "$env:TEMP\s.1.0.cod24.txt0" -Destination "$env:USERPROFILE\Documents\Call of Duty\players\s.1.0.cod24.txt0" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\s.1.0.cod24.txt0" -Destination "$env:USERPROFILE\OneDrive\Documents\Call of Duty\players\s.1.0.cod24.txt0" -Force -ErrorAction SilentlyContinue | Out-Null
-Clear-Host
-Remove-Item -Path "$env:TEMP\s.1.0.cod24.txt0" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\s.1.0.cod24.txt1" -Destination "$env:USERPROFILE\Documents\Call of Duty\players\s.1.0.cod24.txt1" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\s.1.0.cod24.txt1" -Destination "$env:USERPROFILE\OneDrive\Documents\Call of Duty\players\s.1.0.cod24.txt1" -Force -ErrorAction SilentlyContinue | Out-Null
-Clear-Host
-Remove-Item -Path "$env:TEMP\s.1.0.cod24.txt1" -Force -ErrorAction SilentlyContinue | Out-Null
-# message
-Write-Host "Call of Duty Black Ops 6 config applied . . ."
-Write-Host ""
-Write-Host "Resizable-bar causes bad 1% lows in this engine"
-Write-Host "Resizable-bar turned off in config for NVIDIA GPU'S"
-Write-Host "AMD GPU users please turn off Resizable-bar in BIOS"
-Write-Host ""
-Write-Host "Always select no for Set Optimal Settings & Run In Safe Mode"
-Write-Host ""
-Write-Host "Open game, in GRAPHICS select Restart Shaders Pre-Loading then reboot game"
-$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
