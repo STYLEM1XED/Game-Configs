@@ -9,7 +9,7 @@ High-end GPUs owners can afford to experiment with higher graphics settings.<br>
 # IWR
 - Paste this code into an elevated Administrator PowerShell window.
 ```
-iwr https://gist.github.com/FR33THYFR33THY/1d979e6fab17760434367b6ab3c9913d/raw/cbdf1633aa9c3e4298867fbaddb64144bf7c9aed/Github-Game-Configs.ps1 |iex
+iwr https://gist.github.com/FR33THYFR33THY/1d979e6fab17760434367b6ab3c9913d/raw/8ea20a52c89b5fbe5fcef619c1aab453cbc0bcd9/Github-Game-Configs.ps1 |iex
 ```
 
 # OR
