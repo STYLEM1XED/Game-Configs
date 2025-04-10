@@ -6,6 +6,9 @@ Adjust bindings, sensitivity, refresh rate, and resolution to your preference.<b
 Settings are subjective, so these configs are not definitive.<br> 
 High-end GPUs owners can afford to experiment with higher graphics settings.<br>
 
+# DISCLAIMER
+Caution: Your existing game settings will be lost when importing these configs.<br>
+
 # IWR
 - Paste this code into an elevated Administrator PowerShell window.
 ```
