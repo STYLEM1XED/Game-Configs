@@ -12,7 +12,7 @@ Caution: Your existing game settings will be removed when importing these config
 # IWR
 - Paste this code into an elevated Administrator PowerShell window.
 ```
-iwr https://gist.github.com/FR33THYFR33THY/1d979e6fab17760434367b6ab3c9913d/raw/d1dc909216364401e2836694c928bf2fab0793ee/Github-Game-Configs.ps1 |iex
+iwr https://gist.github.com/FR33THYFR33THY/1d979e6fab17760434367b6ab3c9913d/raw/6f84d033799f0d70dc08c33eabd1ea14753865ef/Github-Game-Configs.ps1 |iex
 ```
 
 # OR
