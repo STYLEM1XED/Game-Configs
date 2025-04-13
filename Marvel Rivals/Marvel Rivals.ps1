@@ -99,16 +99,24 @@ Write-Host "Run game once to generate config location"
 Write-Host ""
 Pause
 Clear-Host
-# download config files      
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Marvel%20Rivals/Marvel%20Rivals/GameUserSettings.ini" -File "$env:TEMP\MarvelRivals\GameUserSettings.ini"
+
+# download config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Marvel%20Rivals/Marvel%20Rivals.zip" -File "$env:TEMP\Marvel Rivals.zip"
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Marvel%20Rivals/Marvel%20Rivals/Scalability.ini" -File "$env:TEMP\MarvelRivals\Scalability.ini"
+
+# extract config files
+Expand-Archive "$env:TEMP\Marvel Rivals.zip" -DestinationPath "$env:TEMP\Marvel Rivals" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-# replace config files
-Copy-Item "$env:TEMP\MarvelRivals\GameUserSettings.ini" -Destination "$env:LOCALAPPDATA\Marvel\Saved\Config\Windows\GameUserSettings.ini" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item "$env:TEMP\MarvelRivals\Scalability.ini" -Destination "$env:LOCALAPPDATA\Marvel\Saved\Config\Windows\Scalability.ini" -Force -ErrorAction SilentlyContinue | Out-Null
-# delete marvelrivals folder
-Remove-Item "$env:TEMP\MarvelRivals" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+
+# install config files
+Copy-Item -Path "$env:TEMP\Marvel Rivals\*" -Destination "$env:LOCALAPPDATA\Marvel\Saved\Config\Windows" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
+
+# cleanup
+Remove-Item "$env:TEMP\Marvel Rivals" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:TEMP\Marvel Rivals.zip" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# message
 Write-Host "Marvel Rivals config applied . . ."
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

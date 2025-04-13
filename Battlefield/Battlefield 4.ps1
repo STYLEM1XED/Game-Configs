@@ -98,23 +98,36 @@
 New-Item -Path "$env:USERPROFILE\Documents\Battlefield 4" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 New-Item -Path "$env:USERPROFILE\OneDrive\Documents\Battlefield 4" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-# download and replace config files           
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%204/PROFSAVE" -File "$env:TEMP\PROFSAVE"
-Copy-Item -Path "$env:TEMP\PROFSAVE" -Destination "$env:USERPROFILE\Documents\Battlefield 4\settings\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 4\settings\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# download config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%204.zip" -File "$env:TEMP\Battlefield 4.zip"
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%204/PROFSAVE_profile" -File "$env:TEMP\PROFSAVE_profile"
-Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\Documents\Battlefield 4\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 4\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# extract config files
+Expand-Archive "$env:TEMP\Battlefield 4.zip" -DestinationPath "$env:TEMP\Battlefield 4" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-# pick install folder
+
+# install config files
+Copy-Item -Path "$env:TEMP\Battlefield 4\*" -Destination "$env:USERPROFILE\Documents\Battlefield 4\settings" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\Battlefield 4\*" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 4\settings" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# pick folder
 Write-Host "Select Battlefield 4 install folder:"
-$ConfigFolder1 = Show-ModernFilePicker -Mode Folder
+$InstallFolder = Show-ModernFilePicker -Mode Folder
 Clear-Host
-# download and replace config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%204/user.cfg" -File "$ConfigFolder1\user.cfg"
+
+# install config file
+Copy-Item "$env:TEMP\Battlefield 4\user.cfg" -Destination "$InstallFolder" -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
+
+# cleanup
+Remove-Item "$env:TEMP\Battlefield 4" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:TEMP\Battlefield 4.zip" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\Documents\Battlefield 4\settings\user.cfg" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\OneDrive\Documents\Battlefield 4\settings\user.cfg" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# message
 Write-Host "Battlefield 4 config applied . . ."
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

@@ -98,34 +98,42 @@
 New-Item -Path "$env:USERPROFILE\Documents\BFH" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 New-Item -Path "$env:USERPROFILE\OneDrive\Documents\BFH" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-# download and replace config files       
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Hardline/PROFSAVE_profile" -File "$env:TEMP\PROFSAVE_profile"
-Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\Documents\BFH\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\BFH\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# download config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Hardline.zip" -File "$env:TEMP\Battlefield Hardline.zip"
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Hardline/PROFSAVE_ChangeName" -File "$env:TEMP\PROFSAVE_ChangeName"
-Copy-Item -Path "$env:TEMP\PROFSAVE_ChangeName" -Destination "$env:USERPROFILE\Documents\BFH\settings\PROFSAVE_ChangeName" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_ChangeName" -Destination "$env:USERPROFILE\OneDrive\Documents\BFH\settings\PROFSAVE_ChangeName" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_ChangeName" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# extract config files
+Expand-Archive "$env:TEMP\Battlefield Hardline.zip" -DestinationPath "$env:TEMP\Battlefield Hardline" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Hardline/PROFSAVE_ChangeName_header" -File "$env:TEMP\PROFSAVE_ChangeName_header"
-Copy-Item -Path "$env:TEMP\PROFSAVE_ChangeName_header" -Destination "$env:USERPROFILE\Documents\BFH\settings\PROFSAVE_ChangeName_header" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_ChangeName_header" -Destination "$env:USERPROFILE\OneDrive\Documents\BFH\settings\PROFSAVE_ChangeName_header" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_ChangeName_header" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# install config files
+Copy-Item -Path "$env:TEMP\Battlefield Hardline\*" -Destination "$env:USERPROFILE\Documents\BFH\settings" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\Battlefield Hardline\*" -Destination "$env:USERPROFILE\OneDrive\Documents\BFH\settings" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-# pick install folder
-Write-Host "Select Battlefield Hardline BFH install folder:"
-$ConfigFolder1 = Show-ModernFilePicker -Mode Folder
+
+# pick folder
+Write-Host "Select Battlefield Hardline install folder:"
+$InstallFolder = Show-ModernFilePicker -Mode Folder
 Clear-Host
-# download and replace config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20Hardline/user.cfg" -File "$ConfigFolder1\user.cfg"
+
+# install config file
+Copy-Item "$env:TEMP\Battlefield Hardline\user.cfg" -Destination "$InstallFolder" -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
+
+# cleanup
+Remove-Item "$env:TEMP\Battlefield Hardline" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:TEMP\Battlefield Hardline.zip" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\Documents\BFH\settings\user.cfg" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\OneDrive\Documents\BFH\settings\user.cfg" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# message
 Write-Host "Battlefield Hardline config applied . . ."
 Write-Host ""
 Write-Host "In Documents\BFH\settings\"
 Write-Host "PROFSAVE_ChangeName"
 Write-Host "PROFSAVE_ChangeName_header"
 Write-Host ""
-Write-Host "Rename both ChangeName's to ingame/ea name"
+Write-Host "Rename both 'ChangeName' file text to ingame/ea name"
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

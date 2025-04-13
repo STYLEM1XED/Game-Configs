@@ -98,43 +98,36 @@
 New-Item -Path "$env:USERPROFILE\Documents\Battlefield V" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 New-Item -Path "$env:USERPROFILE\OneDrive\Documents\Battlefield V" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-# download and replace config files           
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20V/PROFSAVE" -File "$env:TEMP\PROFSAVE"
-Copy-Item -Path "$env:TEMP\PROFSAVE" -Destination "$env:USERPROFILE\Documents\Battlefield V\settings\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield V\settings\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# download config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20V.zip" -File "$env:TEMP\Battlefield V.zip"
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20V/PROFSAVE_backup" -File "$env:TEMP\PROFSAVE_backup"
-Copy-Item -Path "$env:TEMP\PROFSAVE_backup" -Destination "$env:USERPROFILE\Documents\Battlefield V\settings\PROFSAVE_backup" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_backup" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield V\settings\PROFSAVE_backup" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_backup" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# extract config files
+Expand-Archive "$env:TEMP\Battlefield V.zip" -DestinationPath "$env:TEMP\Battlefield V" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20V/PROFSAVE_backup_profile" -File "$env:TEMP\PROFSAVE_backup_profile"
-Copy-Item -Path "$env:TEMP\PROFSAVE_backup_profile" -Destination "$env:USERPROFILE\Documents\Battlefield V\settings\PROFSAVE_backup_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_backup_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield V\settings\PROFSAVE_backup_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_backup_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# install config files
+Copy-Item -Path "$env:TEMP\Battlefield V\*" -Destination "$env:USERPROFILE\Documents\Battlefield V\settings" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\Battlefield V\*" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield V\settings" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20V/PROFSAVE_backup_profile_synced" -File "$env:TEMP\PROFSAVE_backup_profile_synced"
-Copy-Item -Path "$env:TEMP\PROFSAVE_backup_profile_synced" -Destination "$env:USERPROFILE\Documents\Battlefield V\settings\PROFSAVE_backup_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_backup_profile_synced" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield V\settings\PROFSAVE_backup_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_backup_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
-Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20V/PROFSAVE_profile" -File "$env:TEMP\PROFSAVE_profile"
-Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\Documents\Battlefield V\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield V\settings\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20V/PROFSAVE_profile_synced" -File "$env:TEMP\PROFSAVE_profile_synced"
-Copy-Item -Path "$env:TEMP\PROFSAVE_profile_synced" -Destination "$env:USERPROFILE\Documents\Battlefield V\settings\PROFSAVE_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROFSAVE_profile_synced" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield V\settings\PROFSAVE_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROFSAVE_profile_synced" -Force -ErrorAction SilentlyContinue | Out-Null
-Clear-Host
-# pick install folder
+
+# pick folder
 Write-Host "Select Battlefield V install folder:"
-$ConfigFolder1 = Show-ModernFilePicker -Mode Folder
+$InstallFolder = Show-ModernFilePicker -Mode Folder
 Clear-Host
-# download and replace config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%20V/user.cfg" -File "$ConfigFolder1\user.cfg"
+
+# install config file
+Copy-Item "$env:TEMP\Battlefield V\user.cfg" -Destination "$InstallFolder" -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
+
+# cleanup
+Remove-Item "$env:TEMP\Battlefield V" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:TEMP\Battlefield V.zip" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\Documents\Battlefield V\settings\user.cfg" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\OneDrive\Documents\Battlefield V\settings\user.cfg" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# message
 Write-Host "Battlefield V config applied . . ."
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

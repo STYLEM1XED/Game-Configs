@@ -98,26 +98,41 @@
 New-Item -Path "$env:USERPROFILE\Documents\Battlefield 3" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 New-Item -Path "$env:USERPROFILE\OneDrive\Documents\Battlefield 3" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-# download and replace config files           
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%203/PROF_SAVE_body" -File "$env:TEMP\PROF_SAVE_body"
-Copy-Item -Path "$env:TEMP\PROF_SAVE_body" -Destination "$env:USERPROFILE\Documents\Battlefield 3\settings\PROF_SAVE_body" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROF_SAVE_body" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 3\settings\PROF_SAVE_body" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROF_SAVE_body" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# download config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%203.zip" -File "$env:TEMP\Battlefield 3.zip"
 Clear-Host
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%203/PROF_SAVE_profile" -File "$env:TEMP\PROF_SAVE_profile"
-Copy-Item -Path "$env:TEMP\PROF_SAVE_profile" -Destination "$env:USERPROFILE\Documents\Battlefield 3\settings\PROF_SAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\PROF_SAVE_profile" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 3\settings\PROF_SAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
-Remove-Item -Path "$env:TEMP\PROF_SAVE_profile" -Force -ErrorAction SilentlyContinue | Out-Null
+
+# extract config files
+Expand-Archive "$env:TEMP\Battlefield 3.zip" -DestinationPath "$env:TEMP\Battlefield 3" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
-# pick install folder
+
+# install config files
+Copy-Item -Path "$env:TEMP\Battlefield 3\*" -Destination "$env:USERPROFILE\Documents\Battlefield 3\settings" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\Battlefield 3\*" -Destination "$env:USERPROFILE\OneDrive\Documents\Battlefield 3\settings" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# pick folder
 Write-Host "Select Battlefield 3 install folder:"
-$ConfigFolder1 = Show-ModernFilePicker -Mode Folder
+$InstallFolder = Show-ModernFilePicker -Mode Folder
 Clear-Host
-# download and replace config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%203/user.cfg" -File "$ConfigFolder1\user.cfg"
+
+# install config file
+Copy-Item "$env:TEMP\Battlefield 3\user.cfg" -Destination "$InstallFolder" -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
+
+# cleanup
+Remove-Item "$env:TEMP\Battlefield 3" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:TEMP\Battlefield 3.zip" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\Documents\Battlefield 3\settings\user.cfg" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\OneDrive\Documents\Battlefield 3\settings\user.cfg" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\Documents\Battlefield 3\settings\Venice Unleashed.url" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:USERPROFILE\OneDrive\Documents\Battlefield 3\settings\Venice Unleashed.url" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# message
 Write-Host "Battlefield 3 config applied . . ."
 Write-Host ""
 Write-Host "https://veniceunleashed.net/"
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-Start-Process https://veniceunleashed.net/
+Start-Process https://veniceunleashed.net
