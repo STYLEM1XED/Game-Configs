@@ -121,6 +121,7 @@ Clear-Host
 Write-Host "Importing Inspector Profiles: Rebar Off. Please wait . . ."
 Write-Host ""
 Write-Host "AMD GPU users, ignore error & press 'OK' x3"
+Write-Host ""
 # unblock drs files
 $path = "C:\ProgramData\NVIDIA Corporation\Drs"
 Get-ChildItem -Path $path -Recurse | Unblock-File
