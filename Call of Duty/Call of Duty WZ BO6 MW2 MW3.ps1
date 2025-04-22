@@ -108,25 +108,6 @@ Clear-Host
 Expand-Archive "$env:TEMP\WZBO6MW2MW3.zip" -DestinationPath "$env:TEMP\WZBO6MW2MW3" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
 
-# message
-Write-Host "Importing Inspector Profiles: Rebar Off. Please wait . . ."
-Write-Host ""
-Write-Host "AMD GPU users, ignore error & press 'OK' x3"
-Write-Host ""
-
-# unblock drs files
-$path = "C:\ProgramData\NVIDIA Corporation\Drs"
-Get-ChildItem -Path $path -Recurse | Unblock-File
-
-# import inspector profiles
-Start-Process -wait "$env:TEMP\WZBO6MW2MW3\RebarOffInspector\Inspector.exe" -args "$env:TEMP\WZBO6MW2MW3\RebarOffInspector\MW2.nip -silent"
-Timeout /T 3 | Out-Null
-Start-Process -wait "$env:TEMP\WZBO6MW2MW3\RebarOffInspector\Inspector.exe" -args "$env:TEMP\WZBO6MW2MW3\RebarOffInspector\MW3.nip -silent"
-Timeout /T 3 | Out-Null
-Start-Process -wait "$env:TEMP\WZBO6MW2MW3\RebarOffInspector\Inspector.exe" -args "$env:TEMP\WZBO6MW2MW3\RebarOffInspector\WZBO6.nip -silent"
-Timeout /T 3 | Out-Null
-Clear-Host
-
 # edit config files
 $options3cod22cst = "$env:TEMP\WZBO6MW2MW3\players\options.3.cod22.cst"
 $options4cod23cst = "$env:TEMP\WZBO6MW2MW3\players\options.4.cod23.cst"
@@ -197,11 +178,7 @@ Remove-Item "$env:TEMP\WZBO6MW2MW3.zip" -Recurse -Force -ErrorAction SilentlyCon
 # message
 Write-Host "Call of Duty WZ BO6 MW2 MW3 config applied . . ."
 Write-Host ""
-Write-Host "Resizable-bar causes bad 1% lows in this engine"
-Write-Host "Resizable-bar is turned off in Config & Inspector for NVIDIA GPU'S"
-Write-Host "AMD GPU users please turn off Resizable-bar in BIOS"
-Write-Host ""
-Write-Host "Turn HAGS off ONLY in MW2 for more FPS"
+Write-Host "Turn HAGS off 'ONLY' in 'MW2' for more FPS"
 Write-Host ""
 Write-Host "Always select 'no' for 'Set Optimal Settings & Run In Safe Mode'"
 Write-Host ""
