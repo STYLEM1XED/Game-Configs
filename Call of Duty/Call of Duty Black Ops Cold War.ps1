@@ -95,6 +95,41 @@
     }
 
 # message
-Clear-Host
-Write-Host "In Progress..."
+Write-Host "Run game once to generate config location"
+Write-Host ""
 Pause
+Clear-Host
+
+# download config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Call%20of%20Duty/Call%20of%20Duty%20Black%20Ops%20Cold%20War.zip" -File "$env:TEMP\ColdWar.zip"
+Clear-Host
+
+# extract config files
+Expand-Archive "$env:TEMP\ColdWar.zip" -DestinationPath "$env:TEMP\ColdWar" -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# install config files
+Copy-Item -Path "$env:TEMP\ColdWar\player\*" -Destination "$env:USERPROFILE\Documents\Call Of Duty Black Ops Cold War\player" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\ColdWar\player\*" -Destination "$env:USERPROFILE\OneDrive\Documents\Call Of Duty Black Ops Cold War\player" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# pick folder
+Write-Host "In 'Documents\Call Of Duty Black Ops Cold War\player' select 'YourID' folder:"
+$ConfigFolder1 = Show-ModernFilePicker -Mode Folder
+Clear-Host
+
+# install config files
+Copy-Item -Path "$env:TEMP\ColdWar\YourID\*" -Destination "$ConfigFolder1" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# cleanup
+Remove-Item "$env:TEMP\ColdWar" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:TEMP\ColdWar.zip" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+
+# message
+Write-Host "Call of Duty Black Ops Cold War config applied . . ."
+Write-Host ""
+Write-Host "Always select 'no' for 'Set Optimal Settings & Run In Safe Mode'"
+Write-Host ""
+Write-Host "Open game, in GRAPHICS select Restart Shaders Pre-Loading then reboot game"
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
