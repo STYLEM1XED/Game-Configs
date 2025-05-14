@@ -94,3 +94,32 @@
     return $OpenFileDialog.FileName
     }
 
+# delete shader cache & config folder
+Remove-Item -Path "$env:LOCALAPPDATA\Discovery" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+
+# create config folder
+New-Item -Path "$env:LOCALAPPDATA\Discovery\Saved\Config" -Name "WindowsClient" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+New-Item -Path "$env:LOCALAPPDATA\Discovery\Saved" -Name "SaveGames" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# download config files
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/The%20Finals/The%20Finals.zip" -File "$env:TEMP\The Finals.zip"
+Clear-Host
+
+# extract config files
+Expand-Archive "$env:TEMP\The Finals.zip" -DestinationPath "$env:TEMP\The Finals" -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# install config files
+Copy-Item -Path "$env:TEMP\The Finals\GameUserSettings.ini" -Destination "$env:LOCALAPPDATA\Discovery\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\The Finals\EmbarkOptionSaveGame.sav" -Destination "$env:LOCALAPPDATA\Discovery\Saved\SaveGames" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# cleanup
+Remove-Item "$env:TEMP\The Finals" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:TEMP\The Finals.zip" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Clear-Host
+
+# message
+Write-Host "The Finals config applied . . ."
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
