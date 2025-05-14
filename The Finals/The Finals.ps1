@@ -103,7 +103,7 @@ New-Item -Path "$env:LOCALAPPDATA\Discovery\Saved" -Name "SaveGames" -ItemType D
 Clear-Host
 
 # download config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/The%20Finals/The%20Finals.ps1" -File "$env:TEMP\The Finals.zip"
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/The%20Finals/The%20Finals.zip" -File "$env:TEMP\The Finals.zip"
 Clear-Host
 
 # extract config files
