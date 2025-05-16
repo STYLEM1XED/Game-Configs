@@ -105,7 +105,7 @@ Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/
 Clear-Host
 
 # extract config files
-Expand-Archive "$env:TEMP\Frag Punk.zip" -DestinationPath "$env:TEMP\Frag Punk" -ErrorAction SilentlyContinue | Out-Null
+Expand-Archive "$env:TEMP\Frag Punk.zip" -DestinationPath "$env:TEMP\FragPunk" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
 
 # message
@@ -116,22 +116,22 @@ Write-Host ""
 # unblock drs files
 $path = "C:\ProgramData\NVIDIA Corporation\Drs"
 Get-ChildItem -Path $path -Recurse | Unblock-File
-# import inspector profiles
-Start-Process -wait "$env:TEMP\Frag Punk\RebarOffInspector\Inspector.exe" -args "$env:TEMP\Frag Punk\RebarOffInspector\FragPunk.nip -silent"
+# import inspector profile
+Start-Process -wait "$env:TEMP\FragPunk\RebarOffInspector\Inspector.exe" -args "$env:TEMP\FragPunk\RebarOffInspector\FragPunk.nip -silent"
 Timeout /T 3 | Out-Null
 Clear-Host
 
 # install config files
-Copy-Item -Path "$env:TEMP\Frag Punk\Engine.ini" -Destination "$env:LOCALAPPDATA\FragPunk\A50\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\Frag Punk\GameUserSettings.ini" -Destination "$env:LOCALAPPDATA\FragPunk\A50\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\Frag Punk\Engine.ini" -Destination "$env:LOCALAPPDATA\FragPunk\Epic\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\Frag Punk\GameUserSettings.ini" -Destination "$env:LOCALAPPDATA\FragPunk\Epic\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\Frag Punk\Engine.ini" -Destination "$env:LOCALAPPDATA\FragPunk\Steam\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path "$env:TEMP\Frag Punk\GameUserSettings.ini" -Destination "$env:LOCALAPPDATA\FragPunk\Steam\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\FragPunk\Engine.ini" -Destination "$env:LOCALAPPDATA\FragPunk\A50\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\FragPunk\GameUserSettings.ini" -Destination "$env:LOCALAPPDATA\FragPunk\A50\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\FragPunk\Engine.ini" -Destination "$env:LOCALAPPDATA\FragPunk\Epic\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\FragPunk\GameUserSettings.ini" -Destination "$env:LOCALAPPDATA\FragPunk\Epic\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\FragPunk\Engine.ini" -Destination "$env:LOCALAPPDATA\FragPunk\Steam\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path "$env:TEMP\FragPunk\GameUserSettings.ini" -Destination "$env:LOCALAPPDATA\FragPunk\Steam\Saved\Config\WindowsClient" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
 
 # cleanup
-Remove-Item "$env:TEMP\Frag Punk" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item "$env:TEMP\FragPunk" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
 Remove-Item "$env:TEMP\Frag Punk.zip" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
 
