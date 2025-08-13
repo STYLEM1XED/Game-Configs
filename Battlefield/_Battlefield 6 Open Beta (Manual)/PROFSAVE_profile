@@ -1,0 +1,154 @@
+GstAudio.Announcer_Voice
+GstAudio.AudioLanguage
+GstAudio.AudioQuality
+GstAudio.CarRadio
+GstAudio.DiegeticMusic
+GstAudio.DiegeticRadio
+GstAudio.Freq_Tinitus
+GstAudio.HitIndicatorSound
+GstAudio.InGameAnnouncer_OnOff
+GstAudio.MenuNarration
+GstAudio.MicrophoneVolume
+GstAudio.MyTeamSpeaksMyLanguage
+GstAudio.OpenMicThreshold
+GstAudio.OptionVOIPLowerGameAudio
+GstAudio.PlaySoundInBackground_OnOff
+GstAudio.RadioStation
+GstAudio.STTEnabled
+GstAudio.SoundSystemSize
+GstAudio.SpeakerConfiguration
+GstAudio.StereoBalance
+GstAudio.SubtitlesCommander
+GstAudio.SubtitlesEnemies
+GstAudio.SubtitlesFriendlies
+GstAudio.SubtitlesShowSpeakerName
+GstAudio.SubtitlesSquad
+GstAudio.SubtitlesTextSize
+GstAudio.TTSEnabled
+GstAudio.VOIPVolume
+GstAudio.VOLanguage
+GstAudio.VOSubtitles
+GstAudio.VoipChannel
+GstAudio.VoipInputDevice 
+GstAudio.VoipMode
+GstAudio.VoipOn
+GstAudio.VoipOutputDevice 
+GstAudio.VoipPosMode
+GstAudio.VoipVolumeReductionAmount
+GstAudio.Volume
+GstAudio.Volume_Controller_Speaker
+GstAudio.Volume_Music
+GstAudio.Volume_Radio_Driver
+GstAudio.Volume_Radio_InWorld
+GstAudio.Volume_Radio_Passenger
+GstAudio.Volume_SFX
+GstAudio.Volume_Tinnitus
+GstAudio.Volume_UI
+GstAudio.Volume_VO
+GstAudio.YourSoundSystem
+GstRender.AMDFrameGenerationEnabled 0
+GstRender.AMDIntelAntiAliasing 0
+GstRender.AMDIntelUpscalingTechnique 0
+GstRender.AMDLowLatency 1
+GstRender.AMDNvidiaUpscalingQuality 3
+GstRender.AmbientOcclusion 0
+GstRender.AspectRatio
+GstRender.Brightness
+GstRender.ChromaticAberration 0
+GstRender.ClampGpuMemory 0
+GstRender.ColorBlindMode
+GstRender.ConsoleAntiAlias 0
+GstRender.Contrast
+GstRender.CrosshairThickness
+GstRender.DRSEnabled 0
+GstRender.DRSFrameRateTarget 240.000000
+GstRender.DRSMinimumResolutionScale 50.000000
+GstRender.DisplayMappingHdr10PeakLuma
+GstRender.Dx12Enabled 0
+GstRender.EffectsQuality 0
+GstRender.Enlighten 0
+GstRender.FieldOfViewScaleADS
+GstRender.FieldOfViewScaleHip
+GstRender.FieldOfViewVertical
+GstRender.FieldOfViewVerticalVehicle
+GstRender.FilmGrain 0
+GstRender.FixedResolutionScale 100.000000
+GstRender.FrameGeneration 0
+GstRender.FrameRateLimit 0.000000
+GstRender.FrameRateLimiterEnable 0
+GstRender.FullscreenEnabled
+GstRender.FullscreenMode
+GstRender.FullscreenRefreshRate
+GstRender.FullscreenScreen
+GstRender.FutureFrameRendering 0
+GstRender.HUD-Accent
+GstRender.HUD-ArmorHard
+GstRender.HUD-ArmorSoft
+GstRender.HUD-Enemy
+GstRender.HUD-Friendly
+GstRender.HUD-Neutral
+GstRender.HUD-Player
+GstRender.HUD-Primary
+GstRender.HUD-Squad
+GstRender.HUD-Warning
+GstRender.HighDynamicRangeMode
+GstRender.HighResUIScaleFactor
+GstRender.HitDamageNumberSize
+GstRender.IntelFrameGenerationEnabled 0
+GstRender.IntelLowLatency 1
+GstRender.IntelUpscalingQuality 5
+GstRender.LensDistortion 0
+GstRender.LightingQuality 0
+GstRender.LocalLightShadowQuality 0
+GstRender.MaxVariableFps 4
+GstRender.MeshQuality 0
+GstRender.MotionBlurWeapon 0.000000
+GstRender.MotionBlurWorld 0.000000
+GstRender.NVIDIAFrameGenerationEnabled 0
+GstRender.NvidiaAntiAliasing 0
+GstRender.NvidiaLowLatency 1
+GstRender.NvidiaMultiFrameGeneration 0
+GstRender.NvidiaUpscalingTechnique 0
+GstRender.OptionHudBackgroundOpacity
+GstRender.OverallGraphicsQuality 5
+GstRender.PerformanceMode 2
+GstRender.PerformanceOverlay 0
+GstRender.PerformanceOverlayEnum 1
+GstRender.PostProcessQuality 0
+GstRender.RaytracingAmbientOcclusion 0
+GstRender.ReflectionQuality 0
+GstRender.ResolutionHeight
+GstRender.ResolutionHertz
+GstRender.ResolutionScale 1.000000
+GstRender.ResolutionWidth
+GstRender.ScreenSafeAreaHeight
+GstRender.ScreenSafeAreaWidth
+GstRender.ScreenSpaceReflections 0
+GstRender.ShaderBundleVersion_17008091276917178825
+GstRender.ShaderBundleVersion_17544879817576072201
+GstRender.ShaderBundleVersion_3488596634058113449
+GstRender.ShaderBundleVersion_7517112694433562924
+GstRender.ShaderBundleVersion_9712618178988428265
+GstRender.ShaderQuality 0.000000
+GstRender.ShadowFiltering 0
+GstRender.ShadowQuality 0
+GstRender.SharpnessSlider 2.000000
+GstRender.SignificanceQuality 0
+GstRender.StereoConvergence
+GstRender.Stereoscopy 0
+GstRender.SubtitleBackgroundAlpha
+GstRender.SubtitleTextAlpha
+GstRender.SubtitleUseOutline
+GstRender.SunShadowQuality 0
+GstRender.TerrainQuality 0
+GstRender.TextureFiltering 0
+GstRender.TextureQuality 0
+GstRender.TransparentShadows 0
+GstRender.UndergrowthQuality 0
+GstRender.VSyncMode 0
+GstRender.Vignette 0
+GstRender.VolumetricQuality 0
+GstRender.VramEnabled 0
+GstRender.WeaponDOF 0
+GstRender.WindowBordersEnable
+GstRender.uiUpscaling 0
