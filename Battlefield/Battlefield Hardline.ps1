@@ -94,6 +94,12 @@
     return $OpenFileDialog.FileName
     }
 
+# message
+Write-Host "Run game once to generate config location"
+Write-Host ""
+Pause
+Clear-Host
+
 # create config folder
 New-Item -Path "$env:USERPROFILE\Documents\BFH" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 New-Item -Path "$env:USERPROFILE\OneDrive\Documents\BFH" -Name "settings" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
@@ -131,9 +137,4 @@ Clear-Host
 # message
 Write-Host "Battlefield Hardline config applied . . ."
 Write-Host ""
-Write-Host "In Documents\BFH\settings\"
-Write-Host "PROFSAVE_ChangeName"
-Write-Host "PROFSAVE_ChangeName_header"
-Write-Host ""
-Write-Host "Rename both 'ChangeName' file text to ingame/ea name"
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
