@@ -102,7 +102,7 @@ New-Item -Path "$env:USERPROFILE\OneDrive\Documents\Battlefield 6\settings" -Nam
 Clear-Host
 
 # download config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%206.zip" -File "$env:TEMP\Battlefield6"
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Battlefield/Battlefield%206.zip" -File "$env:TEMP\Battlefield6.zip"
 Clear-Host
 
 # extract config files
