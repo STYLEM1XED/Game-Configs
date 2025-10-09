@@ -101,7 +101,7 @@ Pause
 Clear-Host
 
 # download config files
-Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Call%20of%20Duty%20Modern%20Warfare%202%202022.zip" -File "$env:TEMP\MW2.zip"
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/Github-Game-Configs/raw/refs/heads/main/Call%20of%20Duty/Call%20of%20Duty%20Modern%20Warfare%202%202022.zip" -File "$env:TEMP\MW2.zip"
 Clear-Host
 
 # extract config files
