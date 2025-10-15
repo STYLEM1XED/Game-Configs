@@ -108,6 +108,10 @@ Clear-Host
 Expand-Archive "$env:TEMP\Battlefield6.zip" -DestinationPath "$env:TEMP\Battlefield6" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
 
+# download inspector
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/files/raw/refs/heads/main/Inspector.exe" -File "$env:TEMP\Battlefield6\RebarOnInspector\Inspector.exe"
+Clear-Host
+
 # replace config file only if destination file exists
 function Replace-IfExists {
     param(

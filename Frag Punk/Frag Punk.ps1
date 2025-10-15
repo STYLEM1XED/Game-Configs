@@ -108,6 +108,10 @@ Clear-Host
 Expand-Archive "$env:TEMP\Frag Punk.zip" -DestinationPath "$env:TEMP\FragPunk" -ErrorAction SilentlyContinue | Out-Null
 Clear-Host
 
+# download inspector
+Get-FileFromWeb -URL "https://github.com/FR33THYFR33THY/files/raw/refs/heads/main/Inspector.exe" -File "$env:TEMP\FragPunk\RebarOffInspector\Inspector.exe"
+Clear-Host
+
 # message
 Write-Host "Importing Frag Punk Inspector Profile: Rebar Off. Please wait . . ."
 Write-Host ""
