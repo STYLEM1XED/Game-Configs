@@ -1,4 +1,4 @@
-# Github-Game-Configs
+# Game-Configs
 
 # ABOUT
 Use these configs as a starting point to improve performance.<br>
